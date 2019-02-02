@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Instructions](#instructions)
-- [Contributing](#contributing)
+- [Contribution](#contribution)
 
 ## Instructions
 
@@ -15,6 +15,6 @@ If you reach the top of the board you win and you can pick if you want to play a
 
 If you collide with an enemy you will automatically go on the start position of the game to play again. 
 
-## Contributing
+## Contribution
 
 Zhiva Kyuchukova and Udacity 
