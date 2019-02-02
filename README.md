@@ -4,6 +4,8 @@
 
 - [Instructions](#instructions)
 - [Contribution](#contribution)
+- [Used resources](#resources)
+
 
 ## Instructions
 
@@ -18,3 +20,10 @@ If you collide with an enemy you will automatically go on the start position of 
 ## Contribution
 
 Zhiva Kyuchukova and Udacity 
+
+## Resources
+
+The project was written with the help of the following materials: 
+
+1. Example Arcade Game by Alain CADENAT https://github.com/Alain91530/arcade
+2. Example Arcade Game tutorial by Matthew Cranford https://matthewcranford.com/category/blog-posts/walkthrough/arcade-game/ 
