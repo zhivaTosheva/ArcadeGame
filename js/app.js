@@ -1,3 +1,7 @@
+
+// Game class with all elements that can be re-used both for the player and the enemy
+// The step is the length of one move of the character on the X axis
+// The jump is the length of one move on the Y axis 
 class GameCharacter{
 	constructor(x, y, sprite){
 		
@@ -9,10 +13,13 @@ class GameCharacter{
 	
 	}
 	
+    // Method to draw the element on the board 
 	render(){
 		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 	}
 }
+
+// Class player. There should be only one player created.
 
 class Player extends GameCharacter{
 	constructor(x,y,sprite){
@@ -26,7 +33,8 @@ class Player extends GameCharacter{
 		
 	}
 	
-	// Methods of the player class
+	// Method to hanle the moving direction of the player making sure
+    // that the player will not go outside the board of the game. 
 	
 	handleInput(input){
 		switch(input){
@@ -69,10 +77,13 @@ class Player extends GameCharacter{
 		
 	}
 	
+    // Method to check of the player loses or win the game (lose is after collision)
 	update(){
 		
 		this.checkCollisions();
-		
+
+		// this is the y axis of the winning block. It is the one of the top of the board game. 
+
 		if(this.y === 63){
 			console.log("You win!");
 			//location.reload();
@@ -81,12 +92,14 @@ class Player extends GameCharacter{
 		}
 	}
 	
+    // Set the player again in the start position
 	resetGame(){
 		this.x = this.startX; 
 		this.y = this.startY;
 		
 	}
 	
+    // Check if the player collides with the enemy. If there is collision reset the game.
 	checkCollisions(){
 		
 		for(let i = 0; i<allEnemies.length;i++){
@@ -108,6 +121,8 @@ class Player extends GameCharacter{
 	
 }
 
+// Class Enemy 
+
 class Enemy extends GameCharacter{
 	constructor(x,y,sprite,speed){
 		
@@ -121,6 +136,7 @@ class Enemy extends GameCharacter{
 		
 	}
 	
+    // Method to move the enemy on the board with the picked speed. 
 	update(dt){
 		
 		if(this.speed >= 0){
@@ -150,42 +166,6 @@ allEnemies.push(enemy1);
 allEnemies.push(enemy2);
 allEnemies.push(enemy3);
 
-
-/*
-
-// Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
-};
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-};
-
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-*/
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

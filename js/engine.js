@@ -24,10 +24,13 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime,
 		id;
+
+     // Pick the elements for the new modal showing after the player wins   
     const modal = document.querySelector(".end_game");
 	const replay = document.querySelector(".replay_button");
 	const cancel = document.querySelector(".cancel_button");
 	
+    // The demensions of the board of the game 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -60,8 +63,11 @@ var Engine = (function(global) {
          * function again as soon as the browser is able to draw another frame.
          */
 		 
+         // If player wins show the modal for reset of the game
 		if(player.victory === true){
 			console.log("Win!");
+
+            // Stop the rendering of the elements on the board and show the new modal
 			win.cancelAnimationFrame(id);
 			modal.classList.toggle('hide');
 			
@@ -176,9 +182,9 @@ var Engine = (function(global) {
         player.render();
     }
 
-    /* This function does nothing but it could have been a good place to
-     * handle game reset states - maybe a new game menu or a game over screen
-     * those sorts of things. It's only called once by the init() method.
+    /* Game reset states - if the player picks to play again, hide the new modal,
+     * reset the game and set the victory variable to false so that it will be used
+     * again in the new game for checking of the win state
      */
     function reset() {
 		
